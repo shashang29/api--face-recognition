@@ -1,0 +1,13 @@
+version: '3.7'
+
+services: 
+    api-face-recognition:
+        container_name: backend
+        # image: node:12.16.1
+        build: ./
+        command: npm start
+        working_dir: /usr/src/api-face-recognition
+        ports:
+            - "3005:3005"
+
+    
