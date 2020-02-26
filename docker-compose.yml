@@ -9,5 +9,8 @@ services:
         working_dir: /usr/src/api-face-recognition
         ports:
             - "3005:3005"
+        volumes: 
+            - ./:/usr/src/api-face-recognition
+            - /usr/src/api-face-recognition/node_modules/
 
     
