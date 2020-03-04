@@ -1,16 +1,33 @@
-version: '3.7'
+version: "3.7"
 
-services: 
+services:
     api-face-recognition:
         container_name: backend
-        # image: node:12.16.1
         build: ./
         command: npm start
         working_dir: /usr/src/api-face-recognition
+        environment:
+            POSTGRES_URI: postgres://shashang:smartbrain@postgres:5432/smart-brain-docker
+            REDIS_URI: redis://redis:6379
         ports:
-            - "3005:3005"
-        volumes: 
+               - "3005:3005"
+        volumes:
             - ./:/usr/src/api-face-recognition
             - /usr/src/api-face-recognition/node_modules/
 
-    
+    # Postgres
+    postgres:
+        environment:
+            POSTGRES_USER: shashang
+            POSTGRES_PASSWORD: smartbrain
+            POSTGRES_DB: smart-brain-docker
+            POSTGRRES_HOST: postgres
+        build: ./postgres
+        ports:
+            - "5432:5432"
+
+    #Redis
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"

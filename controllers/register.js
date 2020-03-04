@@ -1,3 +1,4 @@
+
 const saltRounds = 10;
 
 const handleRegister = (req, res, db, bcrypt) => {
