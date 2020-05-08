@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.3"
 
 services:
     api-face-recognition:
@@ -10,7 +10,7 @@ services:
             POSTGRES_URI: postgres://shashang:smartbrain@postgres:5432/smart-brain-docker
             REDIS_URI: redis://redis:6379
         ports:
-               - "3005:3005"
+            - "3005:3005"
         volumes:
             - ./:/usr/src/api-face-recognition
             - /usr/src/api-face-recognition/node_modules/
